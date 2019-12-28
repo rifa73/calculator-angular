@@ -1,0 +1,29 @@
+<div class="heading">CALCULATOR</div>
+<div class="calc">
+   <input type="text" class="screen" [value]="numm" disabled />
+
+   <div class="keys">
+       <button type="button" (click)="getoper('+')" class="operator" value="+">+</button>
+       <button type="button" (click)="getoper('-')" class="operator" value="-">-</button>
+       <button type="button" (click)="getoper('*')" class="operator" value="*">*</button>
+       <button type="button" (click)="getoper('/')" class="operator" value="/">/</button>
+       <button type="button" (click)="getnum('7')" value="7">7</button>
+       <button type="button" (click)="getnum('8')" value="8">8</button>
+       <button type="button" (click)="getnum('9')" value="9">9</button>
+       <button type="button" (click)="getnum('4')" value="4">4</button>
+       <button type="button" (click)="getnum('5')" value="5">5</button>
+       <button type="button" (click)="getnum('6')" value="6">6</button>
+       <button type="button" (click)="getnum('1')" value="1">1</button>
+       <button type="button" (click)="getnum('2')" value="2">2</button>
+       <button type="button" (click)="getnum('3')" value="3">3</button>
+       <button type="button" (click)="clear()" value="all-clear" class="all-clear">AC</button>
+       <button type="button" (click)="getnum('0')" value="0">0</button>
+       
+       
+       <button type="button" (click)="getdec()" class="decimal" value=".">.</button>
+      
+       <button type="button" (click)="getoper('=')" value="=" class="equal">=</button>
+       
+   </div>
+
+</div>
