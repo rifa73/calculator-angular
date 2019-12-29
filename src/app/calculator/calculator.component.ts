@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { strictEqual } from 'assert';
 
 @Component({
   selector: 'app-calculator',
@@ -6,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calculator.component.css']
 })
 export class CalculatorComponent implements OnInit {
-
-  numm='0';
+   stat="";
+   numm="0";
   firstnumm=null;
   operator=null;
   secnumm=false;
-
-
+  check=false;
+  hold="";
 
   constructor() { }
 
@@ -20,20 +21,28 @@ export class CalculatorComponent implements OnInit {
   }
 
   public getnum(n: String){
-    
+    //console.log(n)
     if(this.secnumm){
       this.numm=n;
+      //stat+=n;
+      
+      this.stat+=n;
       this.secnumm=false;
+      
 
     }
     else{
       this.numm==='0'?this.numm=n:this.numm+=n;
+      this.stat+=n;
+      
+     //stat+=n;
     }
   }
 
   public getdec(){
     if(!this.numm.includes('.')){
       this.numm+='.';
+      this.stat+='.';
 
     }
   }
@@ -55,17 +64,34 @@ export class CalculatorComponent implements OnInit {
   }
 
   public getoper(op: String){
+    //this.stat+=op;
+    if(this.check){
+      
+      this.stat="";
+      this.check=false;
+    }
     
+    if(op==='='){
+      this.stat="";
+    }
     if(this.operator===null){
       this.firstnumm=Number(this.numm);
     }
     else if(this.operator){
+      
+      this.stat="";
       const res=this.calculate(this.operator,Number(this.numm));
+      
       this.numm=res;
+      this.stat+=res;
+      
       this.firstnumm=res;
-
+      this.check=true;
+      
     }
-
+    if(op!='='){
+    this.stat+=op;
+    }
     this.operator=op;
     this.secnumm=true;
     
@@ -76,6 +102,8 @@ export class CalculatorComponent implements OnInit {
     this.firstnumm=null;
     this.operator=null;
     this.secnumm=false;
+    this.stat="";
+    this.check=false;
   }
 }
 

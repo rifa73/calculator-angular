@@ -1,7 +1,7 @@
 <div class="heading">CALCULATOR</div>
 <div class="calc">
-   <input type="text" class="screen" [value]="numm" disabled />
-
+   <input type="text" class="screen"  value="{{stat| slice:0:12}}"disabled />
+    <!--<div class="screen">{{stat| slice:0:}}</div>-->
    <div class="keys">
        <button type="button" (click)="getoper('+')" class="operator" value="+">+</button>
        <button type="button" (click)="getoper('-')" class="operator" value="-">-</button>
