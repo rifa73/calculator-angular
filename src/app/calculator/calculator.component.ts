@@ -20,7 +20,7 @@ export class CalculatorComponent implements OnInit {
   ngOnInit() {
   }
 
-  public getnum(n: String){
+  public getnum(n: string){
     //console.log(n)
     if(this.secnumm){
       this.numm=n;
@@ -63,7 +63,7 @@ export class CalculatorComponent implements OnInit {
     }
   }
 
-  public getoper(op: String){
+  public getoper(op: string){
     //this.stat+=op;
     if(this.check){
       
